@@ -19,6 +19,13 @@
 		DD18FAA41F7B74530024026F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD18FAA31F7B74530024026F /* LoginViewController.swift */; };
 		DD18FAAB1F7C062B0024026F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD18FAAA1F7C062B0024026F /* User.swift */; };
 		DD18FAAD1F7C063A0024026F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD18FAAC1F7C063A0024026F /* Tweet.swift */; };
+		DD68ACAF1F86CBDE0032076D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68ACAE1F86CBDE0032076D /* ProfileViewController.swift */; };
+		DD68ACB11F86CF710032076D /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68ACB01F86CF710032076D /* ProfileHeaderCell.swift */; };
+		DD68ACB31F86CFFC0032076D /* ProfileTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68ACB21F86CFFC0032076D /* ProfileTweetCell.swift */; };
+		DD9D8D861F888749004C5E0E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D8D851F888749004C5E0E /* MenuViewController.swift */; };
+		DD9D8D881F888C50004C5E0E /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D8D871F888C50004C5E0E /* NavigationViewController.swift */; };
+		DD9D8D8A1F888E00004C5E0E /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D8D891F888E00004C5E0E /* NavigationCell.swift */; };
+		DD9D8D8E1F89F213004C5E0E /* ClearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D8D8D1F89F213004C5E0E /* ClearCell.swift */; };
 		DDBCF9951F7EFDB400A11814 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBCF9941F7EFDB400A11814 /* TweetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +45,13 @@
 		DD18FAA31F7B74530024026F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD18FAAA1F7C062B0024026F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD18FAAC1F7C063A0024026F /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		DD68ACAE1F86CBDE0032076D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD68ACB01F86CF710032076D /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		DD68ACB21F86CFFC0032076D /* ProfileTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTweetCell.swift; sourceTree = "<group>"; };
+		DD9D8D851F888749004C5E0E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DD9D8D871F888C50004C5E0E /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		DD9D8D891F888E00004C5E0E /* NavigationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
+		DD9D8D8D1F89F213004C5E0E /* ClearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearCell.swift; sourceTree = "<group>"; };
 		DDBCF9941F7EFDB400A11814 /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		F421521A6C9C8E2671F1EE1F /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				DD06F87C1F7C283C0053FD85 /* TweetCell.swift */,
+				DD68ACB01F86CF710032076D /* ProfileHeaderCell.swift */,
+				DD68ACB21F86CFFC0032076D /* ProfileTweetCell.swift */,
+				DD9D8D891F888E00004C5E0E /* NavigationCell.swift */,
+				DD9D8D8D1F89F213004C5E0E /* ClearCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -120,6 +138,9 @@
 				DD06F8791F7C25880053FD85 /* TweetsViewController.swift */,
 				DDBCF9941F7EFDB400A11814 /* TweetViewController.swift */,
 				DD11AC8A1F80045500EBDF86 /* NewTweetViewController.swift */,
+				DD68ACAE1F86CBDE0032076D /* ProfileViewController.swift */,
+				DD9D8D851F888749004C5E0E /* MenuViewController.swift */,
+				DD9D8D871F888C50004C5E0E /* NavigationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -266,14 +287,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD18FAAB1F7C062B0024026F /* User.swift in Sources */,
+				DD9D8D8E1F89F213004C5E0E /* ClearCell.swift in Sources */,
 				DD06F87D1F7C283C0053FD85 /* TweetCell.swift in Sources */,
+				DD68ACAF1F86CBDE0032076D /* ProfileViewController.swift in Sources */,
 				DD18FAAD1F7C063A0024026F /* Tweet.swift in Sources */,
 				DD18FAA41F7B74530024026F /* LoginViewController.swift in Sources */,
 				DDBCF9951F7EFDB400A11814 /* TweetViewController.swift in Sources */,
 				DD06F87A1F7C25880053FD85 /* TweetsViewController.swift in Sources */,
+				DD9D8D861F888749004C5E0E /* MenuViewController.swift in Sources */,
+				DD68ACB31F86CFFC0032076D /* ProfileTweetCell.swift in Sources */,
 				DD06F8781F7C1BDC0053FD85 /* TwitterClient.swift in Sources */,
+				DD68ACB11F86CF710032076D /* ProfileHeaderCell.swift in Sources */,
 				DD11AC8B1F80045500EBDF86 /* NewTweetViewController.swift in Sources */,
+				DD9D8D881F888C50004C5E0E /* NavigationViewController.swift in Sources */,
 				DD18FA8F1F7B6E280024026F /* AppDelegate.swift in Sources */,
+				DD9D8D8A1F888E00004C5E0E /* NavigationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

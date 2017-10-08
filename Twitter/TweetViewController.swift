@@ -26,7 +26,7 @@ class TweetViewController: UIViewController {
 
   var tweet: Tweet?
   var tweetChangedHandler: ((Tweet) -> Void)?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -142,7 +142,6 @@ class TweetViewController: UIViewController {
       })
     }
     favoriteIcon.isHighlighted = tweet?.favorited ?? false
-    print(tweet?.favorited ?? "nil")
   }
 
   func createAlert(title: String, error: Error) {

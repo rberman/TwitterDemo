@@ -49,7 +49,6 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
   }
 
   @IBAction func tweetButtonTapped(_ sender: Any) {
-    print("tweetbuttontapped")
     if isReply {
       TwitterClient.sharedInstance?.reply(status: tweetText.text, replyToTweet: replyToId!, success: { (newTweet: Tweet) in
         self.tweetPostedHandler?(newTweet)

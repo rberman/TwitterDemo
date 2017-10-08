@@ -13,7 +13,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
   @IBOutlet weak var tableView: UITableView!
 
   var tweets: [Tweet]?
-  private var isMoreDataLoading = true
+  var showMentions: Bool = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,13 +27,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 100.0
 
-    TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
-      self.tweets = tweets
-      self.tableView.reloadData()
-    }, failure: { (error: Error) in
-      print("Error: \(error.localizedDescription)")
-    })
-    isMoreDataLoading = false
+    if showMentions {
+      TwitterClient.sharedInstance?.mentionsTimeline(success: { (tweets: [Tweet]) in
+        self.tweets = tweets
+        self.tableView.reloadData()
+      }, failure: { (error: Error) in
+        print("Error: \(error.localizedDescription)")
+      })
+      print("showMentions")
+    } else {
+      TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
+        self.tweets = tweets
+        self.tableView.reloadData()
+      }, failure: { (error: Error) in
+        print("Error: \(error.localizedDescription)")
+      })
+    }
   }
 
   override func didReceiveMemoryWarning() {
@@ -49,6 +58,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     let tweet = tweets?[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
     cell.tweet = tweet
+    cell.pushProfilePage = {(tappedUser: User) -> Void in
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+      profileViewController.user = tappedUser
+      self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
     return cell
   }
 

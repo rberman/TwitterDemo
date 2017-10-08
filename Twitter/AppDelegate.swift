@@ -16,11 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+    let navigationViewController = storyboard.instantiateViewController(withIdentifier: "NavigationViewController") as! NavigationViewController
+    navigationViewController.menuViewController = menuViewController
+    menuViewController.navigationViewController = navigationViewController
+
     if User.currentUser != nil {
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
-      window?.rootViewController = vc
-    } 
+      window?.rootViewController = menuViewController
+    }
 
     NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) in
       let storyboard = UIStoryboard(name: "Main", bundle: nil)

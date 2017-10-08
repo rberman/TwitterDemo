@@ -61,7 +61,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         let user = User(dictionary: userDictionary)
         User.currentUser = user
         success(user)
-      }, failure: { (task: URLSessionDataTask?, error: Error) in
+      }, failure: {
+        (task: URLSessionDataTask?, error: Error) in
         failure(error)
       })
   }
@@ -72,7 +73,33 @@ class TwitterClient: BDBOAuth1SessionManager {
         let dictionaries = response as! [NSDictionary]
         let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
         success(tweets)
-    }, failure: { (task: URLSessionDataTask?, error: Error) in
+    }, failure: {
+      (task: URLSessionDataTask?, error: Error) in
+      failure(error)
+    })
+  }
+
+  func userTimeline(userId: Int = User.currentUser!.id!, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+    get("1.1/statuses/user_timeline.json", parameters: ["user_id": userId], progress: nil, success: {
+      (task: URLSessionDataTask, response: Any?) in
+      let dictionaries = response as! [NSDictionary]
+      let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+      success(tweets)
+    }, failure: {
+      (task: URLSessionDataTask?, error: Error) in
+      failure(error)
+
+    })
+  }
+
+  func mentionsTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+    get("1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil, success:
+      { (task: URLSessionDataTask, response: Any?) in
+        let dictionaries = response as! [NSDictionary]
+        let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+        success(tweets)
+    }, failure: {
+      (task: URLSessionDataTask?, error: Error) in
       failure(error)
     })
   }

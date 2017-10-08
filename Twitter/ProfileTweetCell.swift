@@ -1,18 +1,18 @@
 //
-//  TweetCell.swift
+//  ProfileTweetCell.swift
 //  Twitter
 //
-//  Created by ruthie_berman on 9/27/17.
+//  Created by ruthie_berman on 10/5/17.
 //  Copyright © 2017 ruthie_berman. All rights reserved.
 //
 
 import UIKit
 
-class TweetCell: UITableViewCell {
+class ProfileTweetCell: UITableViewCell {
 
   @IBOutlet weak var retweetedIcon: UIImageView!
   @IBOutlet weak var retweetedLabel: UILabel!
-  
+
   @IBOutlet weak var profileImage: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -22,8 +22,6 @@ class TweetCell: UITableViewCell {
   @IBOutlet weak var replyIcon: UIImageView!
   @IBOutlet weak var retweetIcon: UIImageView!
   @IBOutlet weak var favoriteIcon: UIImageView!
-
-  var pushProfilePage: ((User) -> ())?
 
   var tweet: Tweet? {
     didSet {
@@ -71,22 +69,16 @@ class TweetCell: UITableViewCell {
     }
   }
 
+
   override func awakeFromNib() {
     super.awakeFromNib()
-    profileImage.isUserInteractionEnabled = true
-    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
-    profileImage.addGestureRecognizer(tapGestureRecognizer)
+    // Initialization code
   }
-
-  func profileImageTapped(_ sender: UITapGestureRecognizer) {
-    pushProfilePage!(tweet!.user!)
-  }
-
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
 
     // Configure the view for the selected state
   }
-
+  
 }

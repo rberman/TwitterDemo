@@ -10,22 +10,36 @@ import UIKit
 
 class User: NSObject {
 
+  var id: Int?
   var name: String?
   var username: String?
-  var profileImageUrl: URL?
   var tagline: String?
+  var tweetsCount: Int?
+  var followersCount: Int?
+  var followingCount: Int?
+  var profileImageUrl: URL?
+  var backgroundImageUrl: URL?
 
   var dictionary: NSDictionary?
 
   init(dictionary: NSDictionary) {
     self.dictionary = dictionary
+    id = dictionary["id"] as? Int
     name = dictionary["name"] as? String
     username = dictionary["screen_name"] as? String
+    tagline = dictionary["description"] as? String
+    tweetsCount = dictionary["statuses_count"] as? Int
+    followersCount = dictionary["followers_count"] as? Int
+    followingCount = dictionary["friends_count"] as? Int
+
     let profileImageUrlStr = dictionary["profile_image_url_https"] as? String
     if let profileImageUrlStr = profileImageUrlStr {
       profileImageUrl = URL(string: profileImageUrlStr)
     }
-    tagline = dictionary["description"] as? String
+    let backgroundImageUrlStr = dictionary["profile_background_image_url_https"] as? String
+    if let backgroundImageUrlStr = backgroundImageUrlStr {
+      backgroundImageUrl = URL(string: backgroundImageUrlStr)
+    }
   }
 
   static let userDidLogoutNotification = "UserDidLogout"
